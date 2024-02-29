@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GameCatalog.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class EmpresasController : Controller
     {
         private readonly GameCatalogContext _context;

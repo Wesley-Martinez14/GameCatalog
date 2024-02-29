@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+@{
+    ViewData["Title"] = "Roles";
+}
+<div class="p-2">
+    @if(Model.Count() > 0)
+    {
+        
+  
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Id);
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Name);
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.NormalizedName);
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.NormalizedName)
+                </td>
+            </tr>
+        }
+    </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay roles registrados</p>
+    }
+    <div class="d-flex justify-content-end pt-2">
+        <a asp-action="Create" asp-controller="Roles" class="btn btn-primary">Agregar rol</a>
+    </div>
+</div>
