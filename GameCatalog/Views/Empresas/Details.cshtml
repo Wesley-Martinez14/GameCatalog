@@ -1,0 +1,31 @@
+﻿@model GameCatalog.Models.Empresa
+
+@{
+    ViewData["Title"] = "Detalles de la empresa";
+}
+
+
+
+<div class="p-3">
+    <h1>Detalles de la empresa</h1>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre de la empresa
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreEmpresa)
+        </dd>
+        <dt class = "col-sm-2">
+            Informacion de la empresa
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InfoEmpresa)
+        </dd>
+    </dl>
+    <div>
+    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.EmpresaId">Editar</a> |
+    <a class="btn btn-outline-secondary" asp-action="Index">Voler</a>
+</div>
+</div>
+

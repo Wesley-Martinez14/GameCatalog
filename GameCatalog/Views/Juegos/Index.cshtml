@@ -1,0 +1,80 @@
+﻿@model IEnumerable<GameCatalog.Models.Juego>
+
+@{
+    ViewData["Title"] = "Catalogo";
+}
+<div class="p-2">
+@if(Model.Count() > 0)
+{
+<h1>Revisa nuestro catalogo de juegos</h1>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Fecha Estreno
+            </th>
+            <th>
+                Clasificacion
+            </th>
+            <th>
+                Disponibilidad
+            </th>
+            <th>
+                Empresa
+            </th>
+            <th>
+                Genero
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEstreno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClasificacionJuego.NombreClasificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisponibilidadJuego.NombreDisponibilidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaJuego.NombreEmpresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneroJuego.NombreGenero)
+            </td>
+            <td>
+                <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.JuegoId">Editar</a> |
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.JuegoId">Detalles</a> |
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.JuegoId">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+    </table>
+}
+else
+{
+    <p>No hay juegos en nuestro catalogo</p>
+}
+    <div class="d-flex justify-content-end pt-2">
+        <a asp-action="Create" asp-controller="Juegos" class="btn btn-primary">Agregar juego</a>
+    </div>
+</div>
+

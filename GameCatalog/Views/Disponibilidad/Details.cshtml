@@ -1,0 +1,25 @@
+﻿@model GameCatalog.Models.Disponibilidad
+
+@{
+    ViewData["Title"] = "Detalles de la disponibilidad";
+}
+
+
+
+<div class="p-3">
+    <h1>Detalles de la disponibilidad</h1>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Disponibilidad
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreDisponibilidad)
+        </dd>
+    </dl>
+    <div>
+        <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.DisponibilidadId">Editar</a> |
+        <a class="btn btn-outline-secondary" asp-action="Index">Volver</a>
+    </div>
+</div>
+

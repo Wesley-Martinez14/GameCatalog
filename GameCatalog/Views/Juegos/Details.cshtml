@@ -1,0 +1,60 @@
+﻿@model GameCatalog.Models.Juego
+
+@{
+    ViewData["Title"] = "Informacion del Juego";
+}
+
+
+<div class="p-3">
+    <h1>Detalles sobre el juego</h1>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+           Descripcion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha Estreno
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaEstreno)
+        </dd>
+        <dt class = "col-sm-2">
+            Clasificacion Juego
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClasificacionJuego.NombreClasificacion)
+        </dd>
+        <dt class = "col-sm-2">
+            Disponibilidad
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DisponibilidadJuego.NombreDisponibilidad)
+        </dd>
+        <dt class = "col-sm-2">
+            Empresa
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmpresaJuego.NombreEmpresa)
+        </dd>
+        <dt class = "col-sm-2">
+           Genero
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GeneroJuego.NombreGenero)
+        </dd>
+    </dl>
+    <div >
+        <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.JuegoId">Editar</a> |
+        <a asp-action="Index" class="btn btn-outline-secondary">Volver</a>
+    </div>
+</div>
+

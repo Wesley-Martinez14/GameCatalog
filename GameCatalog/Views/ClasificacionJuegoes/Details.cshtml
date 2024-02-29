@@ -1,0 +1,32 @@
+﻿@model GameCatalog.Models.ClasificacionJuego
+
+@{
+    ViewData["Title"] = "Detalles de la clasificacion";
+}
+<div class="p-3">
+<h1>Detalles de la clasificacion</h1>
+
+<div>
+    <h4>ClasificacionJuego</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Clasificacion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreClasificacion)
+        </dd>
+        <dt class = "col-sm-2">
+            Descripcion de la Clasificacion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescripcionClasificacion)
+        </dd>
+    </dl>
+    <div>
+    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.ClasificacionId">Editar</a> |
+    <a class="btn btn-outline-secondary" asp-action="Index">Voler</a>
+</div>
+
+</div>
+</div>

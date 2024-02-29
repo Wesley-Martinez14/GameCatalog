@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GameCatalog.Models.GeneroJuego>
+
+@{
+    ViewData["Title"] = "Genero";
+}
+<div class="p-2">
+    @if(Model.Count() > 0)
+    {
+        <h1>Revisa nuestro catalogo de generos para nuestros juegos</h1>
+        <hr/>
+         <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Nombre del Genero
+            </th>
+            <th>
+                Descripcion del Genero
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreGenero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionGenero)
+            </td>
+            <td>
+                <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.GeneroId">Editar</a> |
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.GeneroId">Detalles</a> |
+                <a class="btn btn-outline-danger"asp-action="Delete" asp-route-id="@item.GeneroId">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay Generos disponibles</p>
+    }
+    <div class="d-flex justify-content-end">
+        <a asp-action="Create" asp-controller="GeneroJuegos" class="btn btn-primary">Agregar genero</a>
+    </div>
+</div>
