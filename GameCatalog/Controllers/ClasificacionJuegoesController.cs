@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GameCatalog.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class ClasificacionJuegoesController : Controller
     {
         private readonly GameCatalogContext _context;
@@ -48,6 +48,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: ClasificacionJuegoes/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -70,6 +71,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: ClasificacionJuegoes/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ClasificacionJuegos == null)
@@ -121,6 +123,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: ClasificacionJuegoes/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.ClasificacionJuegos == null)

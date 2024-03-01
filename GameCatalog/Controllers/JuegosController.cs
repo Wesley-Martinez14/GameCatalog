@@ -51,6 +51,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: Juegos/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["ClasificacionJuegoId"] = new SelectList(_context.ClasificacionJuegos, "ClasificacionId", "NombreClasificacion");
@@ -81,6 +82,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: Juegos/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Juegos == null)
@@ -140,6 +142,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: Juegos/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Juegos == null)
