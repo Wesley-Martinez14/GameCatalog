@@ -1,0 +1,35 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "Eliminar";
+}
+<div class="p-2">
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var file in Model)
+            {
+                <li>
+                    <form method="post" asp-action="DeleteFile" asp-controller="Archivo">
+                        <label for="file">@file</label>
+                        <input id="file" type="hidden" name="fileName" value="@file" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </li>
+                
+            }
+        </ul>
+        <br />
+    }
+    else
+    {
+        <p>No hay archivos disponibles para eliminar.</p>
+
+    }
+
+    @if (ViewData["Mensaje"] != null)
+    {
+        <div class="alert alert-info">@ViewData["Mensaje"]</div>
+    }
+    <br />
+    <a asp-action="Index" class="btn btn-outline-secondary text-decoration-none">Presiona para volver</a>
+</div>

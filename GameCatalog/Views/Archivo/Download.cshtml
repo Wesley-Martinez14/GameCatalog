@@ -1,0 +1,19 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "Descargar";
+}
+<div class="p-2">
+    @if(Model.Any()){
+        <ul>
+            @foreach (var file in Model)
+            {
+            <li><a asp-action="DownloadFile" asp-controller="Archivo" asp-route-fileName="@file">@file</a></li>
+        }
+        </ul>
+    }
+    else{
+        <p>No hay archivos para descargar</p>
+    }
+    <br />
+    <a asp-action="Index" class="btn btn-outline-secondary text-decoration-none">Presiona para volver</a>
+</div>

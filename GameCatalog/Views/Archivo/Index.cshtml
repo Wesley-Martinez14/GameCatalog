@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Archivos";
+}
+
+<div class="p-2">
+    <h1>Presiona el boton a continuacion para agregar la foto de la portada del juego</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png" />
+        <br /> <br />
+        <input type="submit" class="btn btn-outline-primary" value="Subir foto" />
+    </form>
+    @if (ViewData["Subida"] != null)
+    {
+        <br />
+        <div class="alert alert-danger">@ViewData["Subida"]</div>
+    }
+    <br />
+    <a asp-action="Download" class="btn btn-outline-success">Presiona para descargar portadas</a>
+    <br /> <br />
+    <a asp-action="Delete" class="btn btn-outline-danger text-decoration-none">Presiona para borrar portadas</a>
+</div>
