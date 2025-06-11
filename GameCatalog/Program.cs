@@ -2,7 +2,6 @@ using GameCatalog.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,6 +17,11 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
 .AddDefaultUI()
     .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("PermisoLeer", policy => policy.RequireClaim("Permission", "Leer"));
+    options.AddPolicy("PermisoEscribir", policy => policy.RequireClaim("Permission", "escribir"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,5 +43,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-
 app.Run();

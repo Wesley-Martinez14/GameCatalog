@@ -37,6 +37,9 @@
                 <td>
                     @Html.DisplayFor(m => item.NormalizedName)
                 </td>
+                <td>
+                    <a asp-action="EditPermissions" asp-route-roleId="@item.Id" class="btn btn-sm btn-warning">Editar Permisos</a>
+                </td>
             </tr>
         }
     </tbody>

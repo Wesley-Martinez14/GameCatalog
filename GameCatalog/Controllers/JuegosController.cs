@@ -29,6 +29,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: Juegos/Details/5
+        [Authorize(Policy = "PermisoLeer")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Juegos == null)
@@ -51,7 +52,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: Juegos/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Policy = "PermisoEscribir")]
         public IActionResult Create()
         {
             ViewData["ClasificacionJuegoId"] = new SelectList(_context.ClasificacionJuegos, "ClasificacionId", "NombreClasificacion");

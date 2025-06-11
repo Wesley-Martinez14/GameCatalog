@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace GameCatalog.Models;
 
@@ -11,15 +10,15 @@ public partial class Juego
     public string Nombre { get; set; } = null!;
 
     public string? Descripcion { get; set; }
-    [DisplayName("Genero")]
+
     public int? GeneroJuegoId { get; set; }
-    [DisplayName("Clasificacion")]
+
     public int? ClasificacionJuegoId { get; set; }
-    [DisplayName("Empresa")]
+
     public int? EmpresaJuegoId { get; set; }
-    [DisplayName("Disponibilidad")]
+
     public int? DisponibilidadJuegoId { get; set; }
-    [DisplayName("Fecha Estreno")]
+
     public DateTime? FechaEstreno { get; set; }
 
     public virtual ClasificacionJuego? ClasificacionJuego { get; set; }
