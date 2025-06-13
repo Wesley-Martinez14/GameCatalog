@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GameCatalog.Data;
 using GameCatalog.Models;
 using Microsoft.AspNetCore.Authorization;
+using GameCatalog.Attributes;
 
 namespace GameCatalog.Controllers
 {
@@ -29,7 +30,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: Juegos/Details/5
-        [Authorize(Policy = "PermisoLeer")]
+        [PermisoRequerido("Leer")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Juegos == null)
@@ -52,7 +53,7 @@ namespace GameCatalog.Controllers
         }
 
         // GET: Juegos/Create
-        [Authorize(Policy = "PermisoEscribir")]
+        [PermisoRequerido("escribir")]
         public IActionResult Create()
         {
             ViewData["ClasificacionJuegoId"] = new SelectList(_context.ClasificacionJuegos, "ClasificacionId", "NombreClasificacion");
